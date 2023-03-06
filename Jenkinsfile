@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                    checkout scmGit(branches: [[name: 'email-notification']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lidorg-dev/trainmefordevsecops.git']])
+                    checkout scmGit(branches: [[name: 'email-notification']], extensions: [], userRemoteConfigs: [[url: 'https://gitlab.com/devops3431/trainmefordevsecops.git']])
 
                 }
         }
@@ -18,7 +18,7 @@ pipeline {
         stage('Build and Tag ') {
             steps {
                 script {
-                     app = docker.build("lidorlg/snake:${env.BUILD_ID}")
+                     app = docker.build("opsdev968/snake:${env.BUILD_ID}")
                 }
                 }
         }
@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Post to Docker Hub  ') {
             steps {
-                script {
+                script {             //https://hub.docker.com/repository/docker/opsdev968/snake  
                 docker.withRegistry('https://registry.hub.docker.com','dockerhub') {
                     app.push("${env.BUILD_ID}")
                     }
