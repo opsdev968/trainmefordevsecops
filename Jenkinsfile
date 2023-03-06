@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                    checkout scmGit(branches: [[name: 'email-notification']], extensions: [], userRemoteConfigs: [[url: 'git@gitlab.com:devops3431/trainmefordevsecops.git']])
+                    checkout scmGit(branches: [[name: '*/email-notification']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkinns', url: 'git@gitlab.com:devops3431/trainmefordevsecops.git']])
 
                 }
         }
