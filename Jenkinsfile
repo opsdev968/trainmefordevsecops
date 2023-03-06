@@ -41,34 +41,12 @@ pipeline {
         }
         stage('DAAS') {
             steps {
-                  sh 'docker-compose down'
-                  sh 'docker-compose up'
+                  //sh 'docker-compose down'
+                  //sh 'docker-compose up'
+                  sh ''
             }
         }
       
     }
 }
 
- 
-
-
- 
-
-   // Send notifications
-
-  
- 
-
-   emailext (
-
-       subject: subject,
-
-       body: details,
-	   mimeType: 'text/html',
-
-      // recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-	   to: 'trainmefordevsecops@gmail.com'
-
-     )
-
- }
