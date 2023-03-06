@@ -32,6 +32,7 @@ pipeline {
                 script {             //https://hub.docker.com/repository/docker/opsdev968/snake  
                 docker.withRegistry('https://registry.hub.docker.com','dockerhub') {
                     app.push("${env.BUILD_ID}")
+                    app.push("latest")
                     }
                 }
                 }
